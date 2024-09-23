@@ -8,54 +8,36 @@ import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.softzino.testdivisionsapp.databinding.FragmentThanaListBinding
 import com.softzino.testdivisionsapp.placeholder.PlaceholderContent
+import com.softzino.testdivisionsapp.repositories.DivisionRepository
+import com.softzino.testdivisionsapp.viewmodels.DivisionViewModel
 
-/**
- * A fragment representing a list of Items.
- */
 class ThanaFragment : Fragment() {
-
-    private var columnCount = 1
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-        arguments?.let {
-            columnCount = it.getInt(ARG_COLUMN_COUNT)
-        }
-    }
+    private lateinit var binding: FragmentThanaListBinding
+    private lateinit var thanaAdapter: ThanaAdapter
+    private lateinit var viewModel: DivisionViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.fragment_thana_list, container, false)
+        binding = FragmentThanaListBinding.inflate(inflater, container, false)
+        return binding.root
+    }
 
-        // Set the adapter
-        if (view is RecyclerView) {
-            with(view) {
-                layoutManager = when {
-                    columnCount <= 1 -> LinearLayoutManager(context)
-                    else -> GridLayoutManager(context, columnCount)
-                }
-                adapter = ThanaAdapter(PlaceholderContent.ITEMS)
-            }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        val recyclerView: RecyclerView = binding.thanaRecyclerView
+        recyclerView.layoutManager = LinearLayoutManager(context)
+        viewModel = DivisionViewModel(DivisionRepository())
+        viewModel.getDivision()
+        viewModel.items.observe(viewLifecycleOwner) {
+            it?.let {}
         }
-        return view
+
+
     }
 
-    companion object {
 
-        // TODO: Customize parameter argument names
-        const val ARG_COLUMN_COUNT = "column-count"
-
-        // TODO: Customize parameter initialization
-        @JvmStatic
-        fun newInstance(columnCount: Int) =
-            ThanaFragment().apply {
-                arguments = Bundle().apply {
-                    putInt(ARG_COLUMN_COUNT, columnCount)
-                }
-            }
-    }
 }

@@ -1,6 +1,7 @@
 package com.softzino.testdivisionsapp.model
 
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
 data class DivisionResponseItem(
     @SerializedName("districts")
@@ -9,4 +10,4 @@ data class DivisionResponseItem(
     val id: Int,
     @SerializedName("name")
     val name: String
-)
+): Serializable
