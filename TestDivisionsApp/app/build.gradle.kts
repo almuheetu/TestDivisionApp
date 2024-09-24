@@ -54,8 +54,12 @@ dependencies {
     implementation(libs.androidx.legacy.support.v4)
     implementation(libs.androidx.navigation.fragment)
     implementation(libs.androidx.navigation.ui.ktx)
+    implementation(libs.androidx.navigation.ui.compose)
+    implementation(libs.androidx.navigation.ui.feature)
+    implementation(libs.androidx.navigation.ui.testing)
     implementation(libs.androidx.recyclerview)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+
 }

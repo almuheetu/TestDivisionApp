@@ -3,7 +3,6 @@ package com.softzino.testdivisionsapp
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
@@ -12,7 +11,6 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.softzino.testdivisionsapp.databinding.FragmentDivisionListBinding
 import com.softzino.testdivisionsapp.model.DivisionResponseItem
-import com.softzino.testdivisionsapp.placeholder.PlaceholderContent
 import com.softzino.testdivisionsapp.repositories.DivisionRepository
 import com.softzino.testdivisionsapp.viewmodels.DivisionViewModel
 
@@ -41,15 +39,18 @@ class DivisionFragment : Fragment(), DivisionAdapter.ItemClickListener {
             it?.let {
                 Log.d("Log404", "onViewCreated: $it")
                 divisionAdapter = DivisionAdapter(it)
-                Log.d("Log404", "onViewCreated: $it")
-                binding.divisionRecyclerView.adapter = divisionAdapter
+                recyclerView.adapter = divisionAdapter
             }
         }
 
     }
 
+
     override fun onItemClick(division: DivisionResponseItem) {
-//        val action = DivisionFragmentDirections.actionDivisionFragmentToDistrictFragment(division)
-//        findNavController().navigate(action)
+            val action = DivisionFragmentDirections.actionDivisionFragmentToDistrictFragment(division)
+            findNavController().navigate(action)
+
     }
+
+
 }

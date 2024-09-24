@@ -1,6 +1,7 @@
 package com.softzino.testdivisionsapp
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -18,7 +19,7 @@ class ThanaFragment : Fragment() {
     private lateinit var binding: FragmentThanaListBinding
     private lateinit var thanaAdapter: ThanaAdapter
     private lateinit var viewModel: DivisionViewModel
-//    private val args: ThanaFragmentArgs by navArgs()
+    private val args: ThanaFragmentArgs by navArgs()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -32,8 +33,10 @@ class ThanaFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-//        val district = args.data
-//        val districtId = district.id
+        val allDistrict = args.data
+        Log.d("allDistrict", "allDistrict: $allDistrict")
+        val districtId = allDistrict.id
+        val thanaList = allDistrict.thanas
 
 
         val recyclerView: RecyclerView = binding.thanaRecyclerView
@@ -43,13 +46,8 @@ class ThanaFragment : Fragment() {
         viewModel.getDivision()
         viewModel.items.observe(viewLifecycleOwner) {
             it?.let {
-//                val filteredDistrict = it.find {
-//                    district -> district.id == districtId
-//                }
-//                if (filteredDistrict != null) {
-//                    thanaAdapter = ThanaAdapter(filteredDistrict)
-//                    recyclerView.adapter = thanaAdapter
-//                }
+
+                
             }
         }
 

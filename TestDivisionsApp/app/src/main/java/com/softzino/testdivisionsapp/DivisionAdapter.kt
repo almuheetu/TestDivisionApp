@@ -8,7 +8,7 @@ import com.softzino.testdivisionsapp.model.DivisionResponseItem
 
 
 class DivisionAdapter(
-    private val divisionList: List<DivisionResponseItem>
+    private val divisionList: List<DivisionResponseItem>,
 ) : RecyclerView.Adapter<DivisionAdapter.ViewHolder>() {
 
     class ViewHolder(var binding: AdapterDivisionBinding) : RecyclerView.ViewHolder(binding.root)
@@ -18,10 +18,12 @@ class DivisionAdapter(
     }
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): ViewHolder {
-        val binding =
-            AdapterDivisionBinding.inflate(LayoutInflater.from(viewGroup.context), viewGroup, false)
+        val binding = AdapterDivisionBinding.inflate(
+            LayoutInflater.from(viewGroup.context),
+            viewGroup,
+            false
+        )
         return ViewHolder(binding)
-
     }
 
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {

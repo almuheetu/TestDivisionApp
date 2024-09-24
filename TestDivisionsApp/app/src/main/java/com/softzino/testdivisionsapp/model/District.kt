@@ -12,4 +12,8 @@ data class District(
     val name: String,
     @SerializedName("thana")
     val thanas: List<Thana>
-): Serializable
+):Serializable {
+    override fun hashCode(): Int {
+        return super.hashCode() ?: 0
+    }
+}
