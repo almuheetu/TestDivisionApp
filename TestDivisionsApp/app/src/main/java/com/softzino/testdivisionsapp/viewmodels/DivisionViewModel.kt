@@ -38,6 +38,7 @@ class DivisionViewModel(val divisionRepository: DivisionRepository) : ViewModel(
 //        _eventShowLoading.value = true
         try {
             _items.value = divisionRepository.getDivisions()
+
             if (_items == null) {
                 items.value?.let {
 

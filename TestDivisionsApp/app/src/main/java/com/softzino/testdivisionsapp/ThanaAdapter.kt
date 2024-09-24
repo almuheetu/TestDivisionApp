@@ -9,10 +9,11 @@ import android.widget.TextView
 import com.softzino.testdivisionsapp.placeholder.PlaceholderContent.PlaceholderItem
 import com.softzino.testdivisionsapp.databinding.AdapterThanaBinding
 import com.softzino.testdivisionsapp.model.DivisionResponseItem
+import com.softzino.testdivisionsapp.model.Thana
 
 
 class ThanaAdapter(
-    private val thanaList: ArrayList<DivisionResponseItem>
+    private val thanaList: List<Thana>
 ) : RecyclerView.Adapter<ThanaAdapter.ViewHolder>() {
     class ViewHolder(var binding: AdapterThanaBinding) : RecyclerView.ViewHolder(binding.root)
 
@@ -24,8 +25,8 @@ class ThanaAdapter(
     }
 
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
-        val thana = thanaList[position]
-        viewHolder.binding.tvThanaName.text = thana.name
+//        val thana = thanaList[position]
+//        viewHolder.binding.tvThanaName.text = thana.name
     }
 
     override fun getItemCount(): Int {

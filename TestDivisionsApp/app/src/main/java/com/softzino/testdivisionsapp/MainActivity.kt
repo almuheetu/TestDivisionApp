@@ -13,12 +13,12 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        if (savedInstanceState == null) {
-            val divisionFragment = DivisionFragment()
-            supportFragmentManager.beginTransaction()
-                .replace(R.id.district_fragment_container, divisionFragment)
-                .commit()
-        }
+//        if (savedInstanceState == null) {
+//            val divisionFragment = DivisionFragment()
+//            supportFragmentManager.beginTransaction()
+//                .replace(R.id.district_fragment_container, divisionFragment)
+//                .commit()
+//        }
 
 //        viewModel = DivisionViewModel(DivisionRepository())
 //        viewModel.getDivision()

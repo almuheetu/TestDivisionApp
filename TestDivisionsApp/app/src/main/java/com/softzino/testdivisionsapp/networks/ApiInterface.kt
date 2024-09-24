@@ -7,4 +7,5 @@ import retrofit2.http.GET
 interface ApiInterface {
     @GET("division")
     suspend fun getDivision():Response<DivisionResponse>
+
 }
