@@ -8,4 +8,4 @@ data class Thana(
     val id: Int,
     @SerializedName("name")
     val name: String
-): Serializable
+)

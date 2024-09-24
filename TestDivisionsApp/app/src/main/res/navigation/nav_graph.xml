@@ -19,22 +19,31 @@
         android:name="com.softzino.testdivisionsapp.DistrictFragment"
         android:label="fragment_district_list"
         tools:layout="@layout/fragment_district_list" >
-        <action
-            android:id="@+id/action_districtFragment_to_thanaFragment"
-            app:destination="@id/thanaFragment" />
+<!--        <action-->
+<!--            android:id="@+id/action_districtFragment_to_thanaFragment"-->
+<!--            app:destination="@id/thanaFragment" />-->
         <argument
             android:name="data"
             app:argType="com.softzino.testdivisionsapp.model.DivisionResponseItem" />
+        <action
+            android:id="@+id/action_districtFragment_to_thanaFragment"
+            app:destination="@id/thanaFragment" />
+
 
     </fragment>
     <fragment
         android:id="@+id/thanaFragment"
         android:name="com.softzino.testdivisionsapp.ThanaFragment"
         android:label="fragment_thana_list"
-        tools:layout="@layout/fragment_thana_list" >
+        tools:layout="@layout/fragment_thana_list" />
+    <!--    <fragment-->
+<!--        android:id="@+id/thanaFragment"-->
+<!--        android:name="com.softzino.testdivisionsapp.ThanaFragment"-->
+<!--        android:label="fragment_thana_list"-->
+<!--        tools:layout="@layout/fragment_thana_list" >-->
 
-        <argument
-            android:name="data"
-            app:argType="com.softzino.testdivisionsapp.model.District" />
-    </fragment>
+<!--        <argument-->
+<!--            android:name="data"-->
+<!--            app:argType="com.softzino.testdivisionsapp.model.District" />-->
+<!--    </fragment>-->
 </navigation>

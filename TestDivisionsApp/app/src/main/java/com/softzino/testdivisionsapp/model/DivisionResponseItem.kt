@@ -11,3 +11,4 @@ data class DivisionResponseItem(
     @SerializedName("name")
     val name: String
 ): Serializable
+
