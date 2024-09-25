@@ -36,7 +36,7 @@ class ThanaFragment : Fragment() {
         val allDistrict = args.data
         Log.d("allDistrict", "allDistrict: $allDistrict")
         val districtId = allDistrict.id
-        val thanaList = allDistrict.thanas
+
 
 
         val recyclerView: RecyclerView = binding.thanaRecyclerView
@@ -46,8 +46,10 @@ class ThanaFragment : Fragment() {
         viewModel.getDivision()
         viewModel.items.observe(viewLifecycleOwner) {
             it?.let {
-
-                
+                val allThana = it
+                val filteredThana = allThana.filter { it.id == districtId }
+                thanaAdapter = ThanaAdapter(filteredThana[0].districts[0].thanas)
+                recyclerView.adapter = thanaAdapter
             }
         }
 

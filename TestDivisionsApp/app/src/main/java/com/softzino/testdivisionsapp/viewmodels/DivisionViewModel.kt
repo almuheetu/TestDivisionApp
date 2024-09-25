@@ -27,7 +27,7 @@ class DivisionViewModel(val divisionRepository: DivisionRepository) : ViewModel(
                 }
             }
         } catch (e: IOException) {
-            Log.e("DivisionViewModel", "Failed to fetch divisions : $e")
+            Log.d("catch", "getDivision: $e")
         }
     }
 }

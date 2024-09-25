@@ -37,7 +37,6 @@ class DivisionFragment : Fragment(), DivisionAdapter.ItemClickListener {
         viewModel.getDivision()
         viewModel.items.observe(viewLifecycleOwner) {
             it?.let {
-                Log.d("Log404", "onViewCreated: $it")
                 divisionAdapter = DivisionAdapter(it)
                 recyclerView.adapter = divisionAdapter
             }

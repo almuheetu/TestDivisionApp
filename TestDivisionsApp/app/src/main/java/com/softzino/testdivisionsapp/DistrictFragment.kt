@@ -33,8 +33,8 @@ class DistrictFragment : Fragment(), DistrictAdapter.ItemClickListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         val allDivision = args.data
-        Log.d("Log404", "onViewCreated: $allDivision")
         val divisionId = allDivision.id
 
 
@@ -42,23 +42,19 @@ class DistrictFragment : Fragment(), DistrictAdapter.ItemClickListener {
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
         DistrictAdapter.listener = this
-        Log.d("Listener", "Listener: $this")
+
 
         viewModel = DivisionViewModel(DivisionRepository())
         viewModel.getDivision()
         viewModel.items.observe(viewLifecycleOwner) {
             it?.let {
-                Log.d("response", "onViewCreated: ${it.toString()}")
                 val allDistrict = it
-                Log.d("allDistrict", "onViewCreated: $it")
                 val filteredDistrict = allDistrict.filter { it.id == divisionId }
-                Log.d("Log404", "onViewCreated: ${filteredDistrict.toString()}")
                 districtAdapter = DistrictAdapter(filteredDistrict[0].districts)
                 recyclerView.adapter = districtAdapter
             }
 
         }
-
 
     }
 
