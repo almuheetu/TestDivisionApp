@@ -49,6 +49,7 @@ class DistrictFragment : Fragment(), DistrictAdapter.ItemClickListener {
         viewModel.items.observe(viewLifecycleOwner) {
             it?.let {
                 val allDistrict = it
+                Log.d("allDistrict", "allDistrict: $allDistrict")
                 val filteredDistrict = allDistrict.filter { it.id == divisionId }
                 districtAdapter = DistrictAdapter(filteredDistrict[0].districts)
                 recyclerView.adapter = districtAdapter
